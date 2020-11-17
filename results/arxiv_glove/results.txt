@@ -1,0 +1,80 @@
+============= Reject-ALL-Reject-ALL =============
+Test accuracy: 67.98418972332016 in 253 examples
+Precision/Recall/F1: (array([0.6798419, 0.       ]), array([1., 0.]), array([0.80941176, 0.        ]), array([172,  81]))
+Training LogisticRegression...
+(best params) LogisticRegression {'C': 0.01, 'penalty': 'l2', 'solver': 'liblinear'}
+(best cross validation accuracy) LogisticRegression 0.7130344108446298
+Training SGDClassifier...
+(best params) SGDClassifier {'alpha': 0.01}
+(best cross validation accuracy) SGDClassifier 0.705526590198123
+Training MLPClassifier...
+(best params) MLP {'activation': 'relu', 'alpha': 0.01, 'hidden_layer_sizes': (32,), 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'max_iter': 3000, 'solver': 'adam'}
+(best cross validation accuracy) MLP 0.7111574556830031
+Training KNN...
+(best params) KNN {'n_neighbors': 10}
+(best cross validation accuracy) KNN 0.6871741397288843
+Training RandomForestClassifier...
+(best params) RandomForestClassifier {'n_estimators': 200}
+(best cross validation accuracy) RandomForestClassifier 0.713660062565172
+Training AdaBoostClassifier...
+(best params) AdaBoostClassifier {'learning_rate': 0.5, 'n_estimators': 200}
+(best cross validation accuracy) AdaBoostClassifier 0.7253388946819604
+Training Ensemble (hard)...
+============= logreg-LogisticRegression(C=0.01, max_iter=10000, solver='liblinear') =============
+Train accuracy: 75.3910323253389 in 4795 examples
+Test accuracy: 76.6798418972332 in 253 examples
+Precision/Recall/F1: (array([0.83040936, 0.63414634]), array([0.8255814 , 0.64197531]), array([0.82798834, 0.63803681]), array([172,  81]))
+Confusion Matrix: [[142  30]
+ [ 29  52]]
+============= sgd_clf-SGDClassifier(alpha=0.01) =============
+Train accuracy: 76.43378519290928 in 4795 examples
+Test accuracy: 77.4703557312253 in 253 examples
+Precision/Recall/F1: (array([0.82857143, 0.65384615]), array([0.84302326, 0.62962963]), array([0.83573487, 0.64150943]), array([172,  81]))
+Confusion Matrix: [[145  27]
+ [ 30  51]]
+============= mlp-MLPClassifier(alpha=0.01, hidden_layer_sizes=(32,), learning_rate='adaptive',
+              learning_rate_init=0.01, max_iter=3000) =============
+Train accuracy: 98.79040667361835 in 4795 examples
+Test accuracy: 75.09881422924902 in 253 examples
+Precision/Recall/F1: (array([0.81871345, 0.6097561 ]), array([0.81395349, 0.61728395]), array([0.81632653, 0.61349693]), array([172,  81]))
+Confusion Matrix: [[140  32]
+ [ 31  50]]
+============= knn-KNeighborsClassifier(n_neighbors=10) =============
+Train accuracy: 75.20333680917622 in 4795 examples
+Test accuracy: 72.33201581027669 in 253 examples
+Precision/Recall/F1: (array([0.76842105, 0.58730159]), array([0.84883721, 0.45679012]), array([0.80662983, 0.51388889]), array([172,  81]))
+Confusion Matrix: [[146  26]
+ [ 44  37]]
+============= random_forest-RandomForestClassifier(n_estimators=200) =============
+Train accuracy: 100.0 in 4795 examples
+Test accuracy: 77.86561264822134 in 253 examples
+Precision/Recall/F1: (array([0.7815534 , 0.76595745]), array([0.93604651, 0.44444444]), array([0.85185185, 0.5625    ]), array([172,  81]))
+Confusion Matrix: [[161  11]
+ [ 45  36]]
+============= adaboost-AdaBoostClassifier(learning_rate=0.5, n_estimators=200) =============
+Train accuracy: 82.56517205422315 in 4795 examples
+Test accuracy: 75.49407114624506 in 253 examples
+Precision/Recall/F1: (array([0.83950617, 0.6043956 ]), array([0.79069767, 0.67901235]), array([0.81437126, 0.63953488]), array([172,  81]))
+Confusion Matrix: [[136  36]
+ [ 26  55]]
+============= ensemble_hard-VotingClassifier(estimators=[('logreg',
+                              LogisticRegression(C=0.01, max_iter=10000,
+                                                 solver='liblinear')),
+                             ('sgd_clf', SGDClassifier(alpha=0.01)),
+                             ('mlp',
+                              MLPClassifier(alpha=0.01,
+                                            hidden_layer_sizes=(32,),
+                                            learning_rate='adaptive',
+                                            learning_rate_init=0.01,
+                                            max_iter=3000)),
+                             ('knn', KNeighborsClassifier(n_neighbors=10)),
+                             ('random_forest',
+                              RandomForestClassifier(n_estimators=200)),
+                             ('adaboost',
+                              AdaBoostClassifier(learning_rate=0.5,
+                                                 n_estimators=200))]) =============
+Train accuracy: 87.00729927007299 in 4795 examples
+Test accuracy: 78.65612648221344 in 253 examples
+Precision/Recall/F1: (array([0.81052632, 0.71428571]), array([0.89534884, 0.55555556]), array([0.85082873, 0.625     ]), array([172,  81]))
+Confusion Matrix: [[154  18]
+ [ 36  45]]
